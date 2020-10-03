@@ -4,8 +4,9 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
-} from "react-router-dom";
+  Link,
+} from 'react-router-dom';
+import Spacekit from '../spacekit';
 
 const Home = React.lazy(() => import('./home.jsx'));
 const About = React.lazy(() => import('./about.jsx'));
