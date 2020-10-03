@@ -6,9 +6,8 @@ import {
   Route,
   Link,
 } from 'react-router-dom';
-import Home from './home';
 import About from './about';
-import Simulation from './sim';
+import Simulation from './Simulation';
 
 function App() {
   return (
@@ -22,20 +21,11 @@ function App() {
             <li>
               <Link to="/about">About</Link>
             </li>
-            <li>
-              <Link to="/simulation">Simulation</Link>
-            </li>
           </ul>
         </nav>
         <Switch>
           <Route path="/about">
             <About />
-          </Route>
-          <Route path="/simulation">
-            <Simulation />
-          </Route>
-          <Route path="/">
-            <Home />
           </Route>
         </Switch>
       </div>
