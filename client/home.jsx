@@ -1,11 +1,10 @@
 import React from 'react';
+import NavBar from './navbar.jsx';
 
 function Home() {
   return (
     <div>
-      <p>Home Page</p>
-      <p>About Page</p>
-      <p>Simulation Page</p>
+      <NavBar />
     </div>
   );
 }

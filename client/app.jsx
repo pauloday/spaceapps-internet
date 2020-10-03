@@ -6,19 +6,12 @@ import {
   Route,
   Link,
 } from 'react-router-dom';
-import Spacekit from '../spacekit';
 
 const Home = React.lazy(() => import('./home.jsx'));
 const About = React.lazy(() => import('./about.jsx'));
-const Simulation = React.lazy(() => import('./simulation.jsx'));
+const Simulation = React.lazy(() => import('./sim.jsx'));
 
 function App() {
-  // esli9n disable-next-line no-undef
-  const viz = new Spacekit.Simulation(document.getElementById('sim'), {
-    basePath: './',
-    startDate: Date.now(),
-  });
-  console.log(viz);
   return (
     <Router>
       <div>
