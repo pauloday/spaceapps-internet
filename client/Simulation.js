@@ -25,5 +25,5 @@ Spacekit.SpaceObjectPresets.EARTH.particleSize = 100;
 Spacekit.SpaceObjectPresets.MARS.particleSize = 70;
 Simulation.createObject('Earth', Spacekit.SpaceObjectPresets.EARTH);
 Simulation.createObject('Mars', Spacekit.SpaceObjectPresets.MARS);
-
+Simulation.createObject('MarsLagrange', Spacekit.SpaceObjectPresets.MARSE1);
 export default Simulation;
