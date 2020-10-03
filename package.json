@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server public"
+    "start": "http-server public",
+    "build": "webpack --watch --mode development"
   },
   "author": "Paul O'Day",
   "license": "ISC",
