@@ -4,7 +4,13 @@ import Simulation from './Simulation';
 import SimButton from './SimButton';
 
 function App() {
-  return <SimButton type="start" name="start" />;
+  return (
+  <div>
+   <SimButton type="start" name="start" />;
+   <SimButton type="stop" name="stop" />;
+   <SimButton type="Roadster" name="Roadster" />;
+  </div>
+  )
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
