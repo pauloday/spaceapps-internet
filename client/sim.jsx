@@ -1,3 +1,4 @@
+import React from 'react';
 import Spacekit from '../spacekit';
 
 function Sim() {
@@ -6,6 +7,9 @@ function Sim() {
     startDate: Date.now(),
   });
   console.log(viz);
+  return (
+    <div></div>
+  )
 }
 
 export default Sim;

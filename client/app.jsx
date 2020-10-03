@@ -6,10 +6,9 @@ import {
   Route,
   Link,
 } from 'react-router-dom';
-
-const Home = React.lazy(() => import('./home.jsx'));
-const About = React.lazy(() => import('./about.jsx'));
-const Simulation = React.lazy(() => import('./sim.jsx'));
+import Home from './home';
+import About from './about';
+import Simulation from './sim';
 
 function App() {
   return (
