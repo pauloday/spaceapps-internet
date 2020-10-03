@@ -1,18 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Simulation from './Simulation';
+import SimButton from './SimButton';
 
 function App() {
-  // eslint-disable-next-line no-undef
-  const viz = new Spacekit.Simulation(document.getElementById('sim'), {
-    basePath: './',
-    startDate: Date.now(),
-  });
-  console.log(viz);
-  return (
-    <div>
-      howdy
-    </div>
-  );
+  return <SimButton type="start" name="start" />;
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
