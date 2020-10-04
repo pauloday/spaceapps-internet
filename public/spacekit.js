@@ -51786,20 +51786,7 @@ var Spacekit = (function (exports) {
 	    'deg',
 	    true /* locked */,
 		),
-		MARSE1: new Ephem(
-      {
-        epoch: 426.5,
-        a: 1.52371401537107,
-        e: 9.336741335309606e-2,
-        i: 1.848141099825311,
-        om: 4.950420572080223e1,
-        w: 2.866965847685386e2,
-        ma: 2.538237617924876e1,
-      },
-      'deg',
-      true /* locked */,
-    ),
-	  JUPITER: new Ephem(
+		JUPITER: new Ephem(
 	    {
 	      epoch: 2458426.5,
 	      a: 5.20180355911023,
@@ -59042,13 +59029,6 @@ var Spacekit = (function (exports) {
 			},
 	    ephem: EphemPresets.MARS,
 		},
-		MARSE1: {
-      textureUrl: DEFAULT_PLANET_TEXTURE_URL,
-      theme: {
-        color: 0xFFBF00,
-      },
-      ephem: EphemPresets.MARSE1,
-    },
 	  JUPITER: {
 	    textureUrl: DEFAULT_PLANET_TEXTURE_URL,
 	    theme: {
