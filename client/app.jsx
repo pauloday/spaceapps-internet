@@ -23,18 +23,18 @@ const Container = {
 };
 
 const button = {
-  display: "inline-block",
-  padding: "0.35em 1.2em",
-  border: "0.1em solid #FFFFFF",
-  margin: "0 0.3em 0.3em 0",
-  borderRadius: "0.12em",
-  boxSizing: "border-box",
-  textDecoration: "none",
-  fontFamily: "'Roboto',sans-serif",
-  fontWeight: "300",
-  color: "#FFFFFF",
-  textAlign: "center",
-  transition: "all 0.2s",
+  display: 'inline-block',
+  padding: '0.35em 1.2em',
+  border: '0.1em solid #FFFFFF',
+  margin: '0 0.3em 0.3em 0',
+  borderRadius: '0.12em',
+  boxSizing: 'border-box',
+  textDecoration: 'none',
+  fontFamily: "'Roboto',sans-serif",
+  fontWeight: '300',
+  color: '#FFFFFF',
+  textAlign: 'center',
+  transition: 'all 0.2s',
 };
 
 function App() {
@@ -48,14 +48,14 @@ function App() {
                 <NavLink to="/" activeStyle={active}>Simulation</NavLink>
               </div>
               <div className="button" style={button}>
-                <NavLink to="/about">About</NavLink>
+                <NavLink to="/about" showModal>About</NavLink>
               </div>
             </div>
           </div>
         </nav>
         <Switch>
           <Route path="/about">
-            <About />
+            <About showModal />
           </Route>
         </Switch>
       </div>
