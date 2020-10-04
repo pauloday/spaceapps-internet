@@ -28,7 +28,7 @@ function marsOrbiter(epoch) {
   };
 }
 
-function lagrange(num, lagranges, setLagranges) {
+function lagrange(num, lagranges, setLagranges, connectivity, setConnectivity) {
   const getLagrange = (lnum) => {
     switch (lnum) {
       case 1:
@@ -41,15 +41,16 @@ function lagrange(num, lagranges, setLagranges) {
   };
   if (lagranges[num]) {
     Simulation.removeObject(lagranges[num]);
+    setConnectivity(connectivity - 50);
     lagranges[num] = false;
   } else {
+    setConnectivity(connectivity + 50);
     lagranges[num] = getLagrange(num);
     setLagranges(lagranges);
   }
 }
 
-function SimButton({type, name, lagrangeNum = 1}) {
-  const [lagranges, setLagranges] = useState([false, false, false]);
+function SimButton({type, name, lagrangeNum = 1, connectivity, setConnection, lagranges, setLagranges}) {
   let onclick;
   switch (type) {
     case 'start':
@@ -59,7 +60,7 @@ function SimButton({type, name, lagrangeNum = 1}) {
       onclick = stop;
       break;
     case 'lagrange':
-      onclick = () => lagrange(lagrangeNum, lagranges, setLagranges);
+      onclick = () => lagrange(lagrangeNum, lagranges, setLagranges, connectivity, setConnection);
       break;
     default:
       onclick = start;
