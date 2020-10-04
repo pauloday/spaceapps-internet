@@ -17,8 +17,8 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/about">About</Link>
-            </li>
+              <button href="/about" style={{color: "black", background: "dodgerblue", borderColor: "dodgerblue", borderRadius: "5px", border: "solid 1px"}}>About</button>
+              </li>
           </ul>
         </nav>
         <SimButton type="lagrange" name="Lagrange1" lagrangeNum={1} />
