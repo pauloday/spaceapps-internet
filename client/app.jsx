@@ -34,6 +34,9 @@ function App() {
   const [connectionStrength, setConnectionStrength] = useState(0);
   const [ping, setPing] = useState(0);
   const [lagranges, setLagranges] = useState([false, false, false]);
+  const pingUpdater = () => {
+    
+  }
   return (
     <div>
       <nav>

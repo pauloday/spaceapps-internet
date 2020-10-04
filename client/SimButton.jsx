@@ -9,22 +9,28 @@ function stop() {
   Simulation.stop();
 }
 
-function marsOrbiter(epoch) {
+function earthOrbiter(epoch) {
   return {
+    textureUrl: '{{assets}}/sprites/fuzzyparticle.png',
     theme: {
-      color: 0xFFBF00,
+      color: 0xf09acd,
     },
-    ephem: new Spacekit.Ephem({
-      epoch,
-      a: 1.52371401537107,
-      e: 9.336741335309606e-2,
-      i: 1.848141099825311,
-      om: 4.950420572080223e1,
-      w: 2.866965847685386e2,
-      ma: 2.538237617924876e1,
-    },
-    'deg',
-    true /* locked */),
+    particleSize: 30,
+    ephem: new Spacekit.Ephem(
+      {
+        // Taken from https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html
+        // https://ssd.jpl.nasa.gov/txt/p_elem_t1.txt
+        epoch,
+        a: 1.00000261,
+        e: 0.01671123,
+        i: -0.00001531,
+        om: 0.0,
+        wBar: 102.93768193,
+        L: 100.46457166,
+      },
+      'deg',
+      true /* locked */,
+    ),
   };
 }
 
@@ -32,9 +38,9 @@ function lagrange(num, lagranges, setLagranges, connectivity, setConnectivity) {
   const getLagrange = (lnum) => {
     switch (lnum) {
       case 1:
-        return Simulation.createObject('MarsLagrange1', marsOrbiter(2458541));
+        return Simulation.createObject('MarsLagrange1', earthOrbiter(2451605.8333333335));
       case 2:
-        return Simulation.createObject('MarsLagrange2', marsOrbiter(2458312));
+        return Simulation.createObject('MarsLagrange2', earthOrbiter(2451484.1666666665));
       default:
     }
     return {};
