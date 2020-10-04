@@ -1,32 +1,57 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Simulation from './Simulation';
 
 function start() {
   Simulation.start();
 }
+
 function stop() {
-  Simulation.stop()
+  Simulation.stop();
 }
-function roadster() {
-  const roadster = Simulation.createObject('spaceman', {
-    labelText: 'Tesla Roadster',
+
+function marsOrbiter(epoch) {
+  return {
+    theme: {
+      color: 0xFFBF00,
+    },
     ephem: new Spacekit.Ephem({
-      // These parameters define orbit shape.
-      a: 1.324870564730606E+00,
-      e: 2.557785995665682E-01,
-      i: 1.077550722804860E+00,
-
-      // These parameters define the orientation of the orbit.
-      om: 3.170946964325638E+02,
-      w: 1.774865822248395E+02,
-      ma: 1.764302192487955E+02,
-
-      // Where the object is in its orbit.
-      epoch: 2458426.500000000,
-    }, 'deg'),
-  });
+      epoch,
+      a: 1.52371401537107,
+      e: 9.336741335309606e-2,
+      i: 1.848141099825311,
+      om: 4.950420572080223e1,
+      w: 2.866965847685386e2,
+      ma: 2.538237617924876e1,
+    },
+    'deg',
+    true /* locked */),
+  };
 }
-function SimButton({type, name}) {
+
+function lagrange(num, lagranges, setLagranges) {
+  const getLagrange = (lnum) => {
+    switch (lnum) {
+      case 1:
+        return Simulation.createObject('MarsLagrange1', marsOrbiter(2458541));
+      case 2:
+        return Simulation.createObject('MarsLagrange2', marsOrbiter(2458312));
+      case 3:
+        return Simulation.createObject('MarsLagrange3', marsOrbiter(2458770));
+      default:
+    }
+  };
+  console.log(num);
+  if (lagranges[num]) {
+    Simulation.removeObject(lagranges[num]);
+    lagranges[num] = false;
+  } else {
+    lagranges[num] = getLagrange(num);
+    setLagranges(lagranges);
+  }
+}
+
+function SimButton({type, name, lagrangeNum = 1}) {
+  const [lagranges, setLagranges] = useState([false, false, false]);
   let onclick;
   switch (type) {
     case 'start':
@@ -35,8 +60,8 @@ function SimButton({type, name}) {
     case 'stop':
       onclick = stop;
       break;
-    case 'Roadster':
-      onclick = roadster;
+    case 'lagrange':
+      onclick = () => lagrange(lagrangeNum, lagranges, setLagranges);
       break;
     default:
       onclick = start;

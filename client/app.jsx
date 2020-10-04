@@ -7,6 +7,7 @@ import {
   Link,
 } from 'react-router-dom';
 import About from './about';
+import SimButton from './SimButton';
 import Simulation from './Simulation';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             </li>
           </ul>
         </nav>
+        <SimButton type="lagrange" name="Lagrange1" lagrangeNum={1} /> 
         <Switch>
           <Route path="/about">
             <About />
