@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import About from './about';
 import SimButton from './SimButton';
-import {distance, blockedSignal } from './distance';
+import {distance, blockedSignal} from './distance';
 
 const Container = {
   display: 'flex',
