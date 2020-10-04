@@ -9,13 +9,12 @@ function distanceFromOrigin(x1,y1,x2,y2) {
   let b = slope;
   let a = 1;
   let c = -1*(left - right);
-  console.log(a,b,c);
   let p = Math.abs(c);
   p = p/Math.sqrt(Math.pow(a,2)+Math.pow(b,2));
   return p;
 };
 
-const SUN_DIAMETER = 1392700000; //meters
+const SUN_DIAMETER = 1392700; //kilometers
 
 function blockedSignal(x1,y1,x2,y2) {
   if(distanceFromOrigin(x1,y1,x2,y2) < SUN_DIAMETER/2) {
@@ -25,10 +24,10 @@ function blockedSignal(x1,y1,x2,y2) {
 }
 
 function oneWayTimeOfTravel(distance) {
-  return distance/299792458;
+  return distance/299792.458;
 };
 
 module.exports.oneWayTimeOfTravel = oneWayTimeOfTravel;
-module.exports.distanceFromOrigin =  distanceFromOrigin;
+module.exports.distanceFromOrigin = distanceFromOrigin;
 module.exports.blockedSignal = blockedSignal;
 module.exports.distance = distance;
