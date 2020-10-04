@@ -7,18 +7,22 @@ import {
   NavLink,
 } from 'react-router-dom';
 import About from './about';
+import SimButton from './SimButton';
 import Simulation from './Simulation';
 
 const active = {
-  fontWeight: 'bold',
-  color: 'red',
+  color: "black",
+  background: "dodgerblue",
+  borderColor: "dodgerblue",
+  borderRadius: "5px",
+  border: "solid 1px",
 };
 
 const Container = {
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'nowrap',
-  justifyContent: 'flex-end',
+  justifyContent: 'space-between',
   backgroundColor: 'black',
 };
 
@@ -37,22 +41,39 @@ const button = {
   transition: 'all 0.2s',
 };
 
+const buttonBlock = {
+  display: 'block',
+};
+
+const rightBlock ={
+  display: 'block',
+};
+
+const imgStyle = {
+  zIndex: '3',
+  marginLeft: '25%',
+}
+
 function App() {
   return (
     <Router>
       <div>
-        <nav className="navbar">
-          <div className="container" style={Container}>
-            <div className="button-container" style={Container}>
-              <div className="button" style={button}>
-                <NavLink to="/" activeStyle={active}>Simulation</NavLink>
-              </div>
-              <div className="button" style={button}>
-                <NavLink to="/about" showModal>About</NavLink>
-              </div>
-            </div>
+        <nav>
+         <div style={Container}>
+          <div style={buttonBlock}>
+            <ul>
+              <li>
+                <NavLink to="/about" activeStyle={active}>About</NavLink>
+              </li>
+            </ul>
           </div>
+          <div style={{width: '100%'}}>
+            <img src="internetonmars.png"  width="600" height="100" style={imgStyle} ></img>
+          </div>
+          <div style={rightBlock} />
+         </div>
         </nav>
+        <SimButton type="lagrange" name="Lagrange1" lagrangeNum={1} />
         <Switch>
           <Route path="/about">
             <About showModal />
