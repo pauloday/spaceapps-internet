@@ -21,7 +21,7 @@ function App() {
             </li>
           </ul>
         </nav>
-        <SimButton type="lagrange" name="Lagrange1" lagrangeNum={1} style="color: red; background: black" />
+        <SimButton type="lagrange" name="Lagrange1" lagrangeNum={1} />
         <Switch>
           <Route path="/about">
             <About />
