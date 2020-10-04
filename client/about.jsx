@@ -13,7 +13,7 @@ function About() {
   }
   Modal.setAppElement('#root');
   return (
-    <div>
+    <div style={{display: "inline"}} >
       <button onClick={openModal} style={{color: "black", background: "dodgerblue", borderColor: "dodgerblue", borderRadius: "5px", border: "solid 1px"}}>About</button>
       <Modal
         isOpen={modalIsOpen}

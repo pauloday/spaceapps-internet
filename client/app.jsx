@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import About from './about';
 import SimButton from './SimButton';
@@ -11,7 +11,6 @@ const Container = {
   justifyContent: 'space-between',
   backgroundColor: 'black',
 };
-
 
 const leftBlock = {
   display: 'block',
@@ -32,34 +31,32 @@ const imgStyle = {
 }
 
 function App() {
+  const [connectionStrength, setConnectionStrength] = useState(0);
+  const [ping, setPing] = useState(0);
+  const [lagranges, setLagranges] = useState([false, false, false]);
   return (
-      <div>
-        <nav>
-         <div style={Container}>
-          <div style={leftBlock}>
-          </div>
-            <div style={centerBlock}>
-              <div style={{width:'100%'}}>
-                <img src="internetonmars.png"  width="600" height="100" style={imgStyle} ></img>
-              </div>
-              <div style={{justifyContent: 'center'}}>
-                <ul>
-                  <li>
-                    <About />
-                  </li>
-                  <li>
-                    <SimButton type="lagrange" name="Lagrange1" lagrangeNum={1} />
-                  </li>
-                  <li>
-                    <SimButton type="lagrange" name="Lagrange2" lagrangeNum={2} />
-                  </li>
-                </ul>
-              </div>
+    <div>
+      <nav>
+        <div style={Container}>
+        <div style={leftBlock}>
+        </div>
+          <div style={centerBlock}>
+            <div style={{width:'100%'}}>
+              <img src="internetonmars.png"  width="600" height="100" style={imgStyle} ></img>
             </div>
-          <div style={rightBlock} />
-         </div>
-        </nav>
-      </div>
+            <div style={{justifyContent: 'center', flexDirection: 'row'}}>
+              <SimButton type="start" name="Start" />
+              <SimButton type="stop" name="stop" />
+              <SimButton type="lagrange" name="Lagrange1" lagrangeNum={1} connectivity={connectionStrength} setConnection={setConnectionStrength} ping={ping} setPing={setPing} lagranges={lagranges} setLagranges={setLagranges}/>
+              <SimButton type="lagrange" name="Lagrange2" lagrangeNum={2} connectivity={connectionStrength} setConnection={setConnectionStrength} ping={ping} setPing={setPing} lagranges={lagranges} setLagranges={setLagranges}/>
+              <About />
+            </div>
+            <div style={{color: "#fff"}}>Connectivity: {connectionStrength}; Ping: {ping}</div>
+          </div>
+        <div style={rightBlock} />
+       </div>
+      </nav>
+    </div>
   );
 }
 
