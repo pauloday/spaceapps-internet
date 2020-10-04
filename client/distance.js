@@ -3,21 +3,18 @@ function distance(x1,y1,x2,y2) {
 };
 
 function distanceFromOrigin(x1,y1,x2,y2) {
-  const slope = (y2-y1)/(x2-x1);
-  let left = -1*slope*y1;
-  let right = -1*x1;
-  let b = slope;
-  let a = 1;
-  let c = -1*(left - right);
-  let p = Math.abs(c);
-  p = p/Math.sqrt(Math.pow(a,2)+Math.pow(b,2));
-  return p;
+  const dy = y2 - y1;
+  const dx = x2 - x1;
+  const num = Math.abs(x2*y1 - y2*x1);
+  const dist = num/distance(x1,x2,y1,y2);
+  console.log(dist);
+  return dist;
 };
 
 const SUN_DIAMETER = 1392700; //kilometers
 
 function blockedSignal(x1,y1,x2,y2) {
-  if(distanceFromOrigin(x1,y1,x2,y2) < SUN_DIAMETER/2) {
+  if(distanceFromOrigin(x1,y1,x2,y2) < (SUN_DIAMETER/2)) {
     return true;
   }
   return false;

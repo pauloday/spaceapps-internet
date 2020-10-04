@@ -15,12 +15,12 @@ const Container = {
 
 const leftBlock = {
   display: 'block',
-  width: '33%',
+  width: '25%',
 };
 
 const rightBlock ={
   display: 'block',
-  width: '33%',
+  width: '25%',
 };
 
 const centerBlock = {
@@ -37,6 +37,8 @@ function App() {
   const [lagranges, setLagranges] = useState([false, false, false]);
   const [l1Blocked, setl1Blocked] = useState(false);
   const [l2Blocked, setl2Blocked] = useState(false);
+  const [marsBlocked, setMarsBlocked] = useState(false);
+
   const pingUpdater = () => {
     const earthLoc = earth.getPosition(Simulation.getJd()).map(Spacekit.auToKm);
     const marsLoc = mars.getPosition(Simulation.getJd()).map(Spacekit.auToKm);
@@ -56,8 +58,12 @@ function App() {
       setPing(oneWayTimeOfTravel(l2Trip));
       setConnectionStrength('Legrange 2');
     }
+    console.log('l1');
     setl1Blocked(blockedSignal(l1Loc[0], l1Loc[0], marsLoc[0], marsLoc[1]));
+    console.log('l2');
     setl2Blocked(blockedSignal(l1Loc[0], l1Loc[0], marsLoc[0], marsLoc[1]));
+    console.log('mars');
+    setMarsBlocked(blockedSignal(earthLoc[0], earthLoc[1], marsLoc[0], marsLoc[1]));
   };
   setInterval(pingUpdater, 1000);
   return (
@@ -77,7 +83,7 @@ function App() {
               <SimButton type="lagrange" name="Lagrange2" lagrangeNum={2} connectivity={connectionStrength} setConnection={setConnectionStrength} ping={ping} setPing={setPing} lagranges={lagranges} setLagranges={setLagranges}/>
               <About />
             </div>
-            <div style={{color: "#fff"}}>Satellite: {connectionStrength} Ping: {Number.parseInt(ping)}s {l1Blocked ? 'Legrange1 blocked': ''} {l2Blocked ? 'Legrange2 blocked': ''}</div>
+            <div style={{color: "#fff"}}>Satellite: {connectionStrength} Ping: {Number.parseInt(ping)}s Legrange1: {l1Blocked ? <b>BLOCKED</b>: 'Not Blocked'} Legrange2: {l2Blocked ? <b>BLOCKED</b>: 'Not Blocked'} Mars LOS: {marsBlocked ? <b>BLOCKED</b> : 'Not Blocked'}</div>
           </div>
         <div style={rightBlock} />
        </div>
