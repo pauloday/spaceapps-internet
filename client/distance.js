@@ -24,6 +24,7 @@ function blockedSignal(x1,y1,x2,y2) {
   return false;
 }
 
-export distance;
-export distanceFromOrigin;
-export blockedSignal;
+
+module.exports.distanceFromOrigin =  distanceFromOrigin;
+module.exports.blockedSignal = blockedSignal;
+module.exports.distance = distance;
