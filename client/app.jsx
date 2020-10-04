@@ -1,22 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink,
-} from 'react-router-dom';
 import About from './about';
 import SimButton from './SimButton';
-import Simulation from './Simulation';
-
-const active = {
-  color: "black",
-  background: "dodgerblue",
-  borderColor: "dodgerblue",
-  borderRadius: "5px",
-  border: "solid 1px",
-};
 
 const Container = {
   display: 'flex',
@@ -47,7 +32,6 @@ const imgStyle = {
 
 function App() {
   return (
-    <Router>
       <div>
         <nav>
          <div style={Container}>
@@ -60,10 +44,13 @@ function App() {
               <div style={{justifyContent: 'center'}}>
                 <ul>
                   <li>
-                    <NavLink to="/about" style={active}>About</NavLink>
+                    <About />
                   </li>
                   <li>
                     <SimButton type="lagrange" name="Lagrange1" lagrangeNum={1} />
+                  </li>
+                  <li>
+                    <SimButton type="lagrange" name="Lagrange2" lagrangeNum={2} />
                   </li>
                 </ul>
               </div>
@@ -71,14 +58,7 @@ function App() {
           <div style={rightBlock} />
          </div>
         </nav>
-
-        <Switch>
-          <Route path="/about">
-            <About showModal />
-          </Route>
-        </Switch>
       </div>
-    </Router>
   );
 }
 

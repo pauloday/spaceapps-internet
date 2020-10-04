@@ -35,12 +35,10 @@ function lagrange(num, lagranges, setLagranges) {
         return Simulation.createObject('MarsLagrange1', marsOrbiter(2458541));
       case 2:
         return Simulation.createObject('MarsLagrange2', marsOrbiter(2458312));
-      case 3:
-        return Simulation.createObject('MarsLagrange3', marsOrbiter(2458770));
       default:
     }
+    return {};
   };
-  console.log(num);
   if (lagranges[num]) {
     Simulation.removeObject(lagranges[num]);
     lagranges[num] = false;
