@@ -13,7 +13,6 @@ function About() {
       <p className="MsoNormal"><b>Distance/Time:</b></p>
 
       <p className="MsoNormal">
-        // eslint-disable-next-line max-len
         Our current understanding of physics and current technology allows information to travel at the maximum limit of the speed of light (~300km/s).
         <span />
         That means for communicating with spacecraft
