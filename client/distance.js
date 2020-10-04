@@ -24,7 +24,11 @@ function blockedSignal(x1,y1,x2,y2) {
   return false;
 }
 
+function oneWayTimeOfTravel(distance) {
+  return distance/299792458;
+};
 
+module.exports.oneWayTimeOfTravel = oneWayTimeOfTravel;
 module.exports.distanceFromOrigin = distanceFromOrigin;
 module.exports.blockedSignal = blockedSignal;
 module.exports.distance = distance;
