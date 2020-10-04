@@ -17,14 +17,11 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Internet On Mars!</Link>
-            </li>
-            <li>
               <Link to="/about">About</Link>
             </li>
           </ul>
         </nav>
-        <SimButton type="lagrange" name="Lagrange1" lagrangeNum={1} /> 
+        <SimButton type="lagrange" name="Lagrange1" lagrangeNum={1} style="color: red; background: black" />
         <Switch>
           <Route path="/about">
             <About />

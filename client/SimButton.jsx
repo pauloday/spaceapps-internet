@@ -67,7 +67,7 @@ function SimButton({type, name, lagrangeNum = 1}) {
       onclick = start;
       break;
   }
-  return <button onClick={onclick}>{name}</button>;
+  return <button style={{color: "maroon", background: "black", borderColor: "maroon", borderRadius: "5px", border: "solid 1px"}} onClick={onclick}>{name}</button>
 }
 
 export default SimButton;
