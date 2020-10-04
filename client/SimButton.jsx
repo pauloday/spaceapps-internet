@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Simulation from './Simulation';
+import Simulation, {legrange1, legrange2} from './Simulation';
 
 function start() {
   Simulation.start();
@@ -9,38 +9,15 @@ function stop() {
   Simulation.stop();
 }
 
-function earthOrbiter(epoch) {
-  return {
-    textureUrl: '{{assets}}/sprites/fuzzyparticle.png',
-    theme: {
-      color: 0xf09acd,
-    },
-    particleSize: 30,
-    ephem: new Spacekit.Ephem(
-      {
-        // Taken from https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html
-        // https://ssd.jpl.nasa.gov/txt/p_elem_t1.txt
-        epoch,
-        a: 1.00000261,
-        e: 0.01671123,
-        i: -0.00001531,
-        om: 0.0,
-        wBar: 102.93768193,
-        L: 100.46457166,
-      },
-      'deg',
-      true /* locked */,
-    ),
-  };
-}
+
 
 function lagrange(num, lagranges, setLagranges, connectivity, setConnectivity) {
   const getLagrange = (lnum) => {
     switch (lnum) {
       case 1:
-        return Simulation.createObject('MarsLagrange1', earthOrbiter(2451605.8333333335));
+        return Simulation.createObject('MarsLagrange1', legrange1);
       case 2:
-        return Simulation.createObject('MarsLagrange2', earthOrbiter(2451484.1666666665));
+        return Simulation.createObject('MarsLagrange2', legrange2);
       default:
     }
     return {};
