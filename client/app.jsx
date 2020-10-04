@@ -26,32 +26,23 @@ const Container = {
   backgroundColor: 'black',
 };
 
-const button = {
-  display: 'inline-block',
-  padding: '0.35em 1.2em',
-  border: '0.1em solid #FFFFFF',
-  margin: '0 0.3em 0.3em 0',
-  borderRadius: '0.12em',
-  boxSizing: 'border-box',
-  textDecoration: 'none',
-  fontFamily: "'Roboto',sans-serif",
-  fontWeight: '300',
-  color: '#FFFFFF',
-  textAlign: 'center',
-  transition: 'all 0.2s',
-};
 
-const buttonBlock = {
+const leftBlock = {
   display: 'block',
+  width: '33%',
 };
 
 const rightBlock ={
   display: 'block',
+  width: '33%',
 };
 
+const centerBlock = {
+  display: 'flex',
+  flexDirection: 'column',
+};
 const imgStyle = {
   zIndex: '3',
-  marginLeft: '25%',
 }
 
 function App() {
@@ -60,20 +51,27 @@ function App() {
       <div>
         <nav>
          <div style={Container}>
-          <div style={buttonBlock}>
-            <ul>
-              <li>
-                <NavLink to="/about" activeStyle={active}>About</NavLink>
-              </li>
-            </ul>
+          <div style={leftBlock}>
           </div>
-          <div style={{width: '100%'}}>
-            <img src="internetonmars.png"  width="600" height="100" style={imgStyle} ></img>
-          </div>
+            <div style={centerBlock}>
+              <div style={{width:'100%'}}>
+                <img src="internetonmars.png"  width="600" height="100" style={imgStyle} ></img>
+              </div>
+              <div style={{justifyContent: 'center'}}>
+                <ul>
+                  <li>
+                    <NavLink to="/about" style={active}>About</NavLink>
+                  </li>
+                  <li>
+                    <SimButton type="lagrange" name="Lagrange1" lagrangeNum={1} />
+                  </li>
+                </ul>
+              </div>
+            </div>
           <div style={rightBlock} />
          </div>
         </nav>
-        <SimButton type="lagrange" name="Lagrange1" lagrangeNum={1} />
+
         <Switch>
           <Route path="/about">
             <About showModal />
