@@ -24,10 +24,8 @@ function lagrange(num, lagranges, setLagranges, connectivity, setConnectivity) {
   };
   if (lagranges[num]) {
     Simulation.removeObject(lagranges[num]);
-    setConnectivity(connectivity - 50);
     lagranges[num] = false;
   } else {
-    setConnectivity(connectivity + 50);
     lagranges[num] = getLagrange(num);
     setLagranges(lagranges);
   }
